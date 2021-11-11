@@ -1,5 +1,6 @@
 package com.jdbcemployeepayroll;
 
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class EmployeePayRoll {
@@ -33,6 +34,14 @@ public class EmployeePayRoll {
 				break;
 
 			case 4:
+				System.out.println("enter initial date");
+				LocalDate iDate = LocalDate.parse(scanner.next());
+				System.out.println("enter final date");
+				LocalDate eDate = LocalDate.parse(scanner.next());
+				employeePayRollService.getEmployee(iDate, eDate);
+				break;
+
+			case 5:
 				System.out.println("good bye");
 				break;
 

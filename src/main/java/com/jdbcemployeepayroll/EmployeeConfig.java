@@ -15,8 +15,10 @@ public class EmployeeConfig {
 			System.out.println("Drivers loaded!!");
 			connection = DriverManager.getConnection(URL_JD, USER_NAME, PASSWORD);
 			System.out.println("connection Established!!");
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			throw new EmployeeException("invalid driver");
+		} catch (SQLException throwables) {
+			throw new EmployeeException("Invalid get connection parameters");
 		}
 		return connection;
 	}
